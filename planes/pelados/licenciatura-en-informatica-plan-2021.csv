@@ -1,0 +1,51 @@
+Código,Nombre,Duración,Correlativas,Contacto
+CNE,Expresión de Problemas y Algoritmos,6 Semanas,,
+CNC,Conceptos de Organización de Computadoras,6 Semanas,,
+CNM,Matemática 0,6 Semanas,,
+PRIMER SEMESTRE,PRIMER SEMESTRE,PRIMER SEMESTRE,PRIMER SEMESTRE,PRIMER SEMESTRE
+SI106,Conceptos de Algoritmos de Datos y Programas,Semestral,CNE,
+SI104,Organización de Computadoras,Semestral,CNC,
+SI101,Matemática 1,Semestral,CNM,
+SEGUNDO SEMESTRE,SEGUNDO SEMESTRE,SEGUNDO SEMESTRE,SEGUNDO SEMESTRE,SEGUNDO SEMESTRE
+SI107,Taller de Programación,Semestral,SI106,
+SI105,Arquitectura de Computadoras,Semestral,SI104,
+SI102,Matemática 2,Semestral,SI101,
+SEGUNDO AÑO,SEGUNDO AÑO,SEGUNDO AÑO,SEGUNDO AÑO,SEGUNDO AÑO
+TERCER SEMESTRE,TERCER SEMESTRE,TERCER SEMESTRE,TERCER SEMESTRE,TERCER SEMESTRE
+SI209,Fundamentos de Organización de Datos,Semestral,SI107,
+SI203,Algoritmos y Estructuras de Datos,Semestral,"SI102, SI107",
+SI207,"Seminario de Lenguajes (Javascript – Android + Kotlin – PHP, React y API Rest – Go – Rust – .NET – Python )",Semestral,SI107,
+CUARTO SEMESTRE,CUARTO SEMESTRE,CUARTO SEMESTRE,CUARTO SEMESTRE,CUARTO SEMESTRE
+SI210,Diseño de Bases de Datos,Semestral,SI209,
+SI202,Ingeniería de Software 1,Semestral,SI107,
+SI206,Orientación a Objetos 1,Semestral,SI107,
+SI204,Introducción a los Sistemas Operativos,Semestral,"SI107, SI105",
+SI208,Taller de lecto-comprensión y Traducción en Inglés,Semestral,,
+TERCER AÑO,TERCER AÑO,TERCER AÑO,TERCER AÑO,TERCER AÑO
+QUINTO SEMESTRE,QUINTO SEMESTRE,QUINTO SEMESTRE,QUINTO SEMESTRE,QUINTO SEMESTRE
+SI308,Matemática 3,Semestral,SI102,
+SI302,Ingeniería de Software 2,Semestral,"SI202, SI208",
+SI306,Conceptos y Paradigmas de Lenguajes de Programación,Semestral,"SI203, SI207, SI208",
+SI307,Orientación a Objetos 2,Semestral,"SI206, SI208",
+SEXTO SEMESTRE,SEXTO SEMESTRE,SEXTO SEMESTRE,SEXTO SEMESTRE,SEXTO SEMESTRE
+SI304,Redes y Comunicaciones,Semestral,"SI102, SI204, SI208",
+SI301,Programación Concurrente,Semestral,"SI204, SI207, SI208",
+SI305,Proyecto de Software,Semestral,"SI210, SI202, SI203, SI206, SI207, SI208",
+0I309,Computabilidad y Complejidad,Semestral,"SI203, SI308, SI208",
+CUARTO AÑO,CUARTO AÑO,CUARTO AÑO,CUARTO AÑO,CUARTO AÑO
+SÉPTIMO SEMESTRE,SÉPTIMO SEMESTRE,SÉPTIMO SEMESTRE,SÉPTIMO SEMESTRE,SÉPTIMO SEMESTRE
+0I401,Teoría de la Computación y Verificación de Programas,Semestral,"SI308, SI306",
+SI403,Sistemas Operativos,Semestral,SI304,
+0I404,Sistemas Paralelos,Semestral,SI301,
+,Optativa 1 LI,Semestral,Ver Optativas,
+OCTAVO SEMESTRE,OCTAVO SEMESTRE,OCTAVO SEMESTRE,OCTAVO SEMESTRE,OCTAVO SEMESTRE
+0I406,Lógica e Inteligencia Artificial,Semestral,"SI102, SI306",
+SI409,Matemática 4,Semestral,SI308,
+0I402,Laboratorio de Software,Semestral,SI305,
+0I405,Programación Distribuida y Tiempo Real,Semestral,"SI306, SI304",
+QUINTO AÑO,QUINTO AÑO,QUINTO AÑO,QUINTO AÑO,QUINTO AÑO
+NOVENO SEMESTRE,NOVENO SEMESTRE,NOVENO SEMESTRE,NOVENO SEMESTRE,NOVENO SEMESTRE
+0I502,Diseño de Experiencia de Usuario,Semestral,"SI302, OI402",
+SI504,Aspectos Sociales y Profesionales de la Informatica,Semestral,SI305,
+SI505,"Aspectos Éticos, Sociales y Profesionales Avanzados de Informática",Semestral,SI305,
+0I503,Tesina de Licenciatura en Informática,,Tener aprobados todos los exámenes finales de 1º y 2º año y al menos 2 (dos) exámenes finales más,

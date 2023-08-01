@@ -1,0 +1,64 @@
+
+
+
+.nav {
+    position: fixed;
+    display: block;
+    background-color: var(--bg-second);
+    align-items: center;
+    top: 0;
+    height: 100vh;
+}
+
+.nav-item {
+    margin: 10px 0;
+    display: flex;
+    height: 1rem;
+    width: 80%;
+    padding: 1.5rem 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 25px;
+    filter: grayscale(100%) opacity(.5);
+}
+
+
+.nav-item:hover .nav-link {
+    filter: grayscale(0%) opacity(1);
+    color: hsl(210, 100%, 65%);
+}
+
+.nav-item:hover {
+    color: hsl(210, 100%, 65%);
+    background-color: var(--bg-third);
+    border-radius: 15%;
+}
+
+.nav-item:hover .tooltip {
+    opacity: 1;
+}
+
+.tooltip {
+    height: fit-content;
+    width: max-content;
+    padding: 0.5rem 1rem;
+    margin: 0rem 0.5rem;
+    font-size: 15px;
+    font-weight: 500;
+    background-color: var(--bg-third);
+    color: var(--font-second);
+    top: inherit;
+    left: 100%;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8%;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.5s;
+}
