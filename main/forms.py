@@ -20,7 +20,7 @@ class CursandoForm(forms.Form):
     materias, headers = get_materias_proximo()
     opciones = materias.values_list('codigo', 'nombre')
     codigo = forms.ChoiceField(choices=opciones,
-                               widget=forms.SelectMultiple(attrs={'class': 'dropdown-select'}),
+                               widget=forms.Select(attrs={'class': 'dropdown-select'}),
                                label="Selecciona")
 
     def clean_codigo(self):
