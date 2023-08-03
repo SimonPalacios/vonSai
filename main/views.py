@@ -1,6 +1,9 @@
+from typing import List
+
 from django.http import HttpResponse
 from django.shortcuts import render
 
+from django.db.models import Count, Q
 from historiaAcademica import modelar
 from . import funcionalidades
 from .models import Todas, PlanEstudio
@@ -8,7 +11,7 @@ from .forms import PlanChoiceForm, UploadFileForm, CursandoForm
 
 
 def get_headers():
-    headers = ['codigo', 'nombre', 'correlativas', 'area', 'subarea', 'year',
+    headers = ['codigo', 'nombre', 'area', 'subarea', 'year',
                'semestre']
     return headers
 
@@ -32,28 +35,40 @@ def get_todas():
     materias = list(Todas.objects.values(*headers))
     headers = [head.capitalize() for head in headers]
     headers[-2] = 'Año'
-    return {'columnas': headers,
+    return {'titulo': "Listado de Todas las Materias",
+            'columnas': headers,
             'materias': materias}
 
 
 def get_plan():
-    return {'columnas': get_headers(),
-            'materias': list(Todas.objects.values())}
+    headers = get_headers()
+    plan_estudios = PlanEstudio
+    plan_estudios.nombre = "ATIC"
+    materias_plan = list(plan_estudios.materias.values_list('codigo', flat=True))
+
+    materias = list(Todas.objects.filter(codigo__in=materias_plan).values(*headers))
+    headers = [head.capitalize() for head in headers]
+    headers[-2] = 'Año'
+    return {'titulo': f"Plan {plan_estudios.nombre}",
+            'columnas': get_headers(),
+            'materias': materias}
 
 
 def get_materias_proximo():
     materias, headers = funcionalidades.get_materias_proximo()
     headers[-2] = 'Año'
-    return {'columnas': list(map(lambda x: x.capitalize(), headers)),
+    return {'titulo': "Cursadas próximo Semestre",
+            'columnas': list(map(lambda x: x.capitalize(), headers)),
             'materias': materias}
 
 
 def get_cursando():
     headers = ['codigo', 'nombre', 'year']
-    materias = Todas.objects.filter(cursando=True).values(*headers)
+    materias = Todas.cursada_actual.values(*headers)
     headers = [head.capitalize() for head in headers]
     headers[2] = "Año"
-    return {'columnas': headers,
+    return {'titulo': "Cursada Actual",
+            'columnas': headers,
             'materias': materias}
 
 
@@ -65,18 +80,24 @@ def get_aprobadas():
         value['cursada'] = 'A' if value['cursada'] else '-'
         value['final'] = 'A' if value['final'] else '-'
     headers = list(map(lambda x: x.capitalize(), headers))
-    return {'columnas': headers,
+    return {'titulo': "Materias Aprobadas",
+            'columnas': headers,
             'materias': cursadas}
 
 
 def cursada(request):
     if request.method == 'POST':
-        choices = dict(request.POST)['codigo'][:-1]
-        if choices:
-            Todas.objects.filter(codigo__in=choices).update(cursando=True)
-            return HttpResponse(
-                status=204,
-            )
+        try:
+            print()
+            choices = [request.POST['codigo']]
+            print(f"ELECCION: {type(choices)}")
+            if choices:
+                Todas.objects.filter(codigo__in=choices).update(cursando=True)
+        except Exception as e:
+            print(f"ERROR: \n {e}")
+        return HttpResponse(
+            status=204,
+        )
     else:
         return {'form': CursandoForm(),
                 'title': "Elegir Cursadas Actuales"}
@@ -99,9 +120,7 @@ def historia(request):
             status=204,
         )
     else:
-        form = UploadFileForm()
-        # print("FORM", form.fields['archivo'].widget.attrs)
-        return {'form': form,
+        return {'form': UploadFileForm(),
                 'title': "Cargar Historia Académica"}
 
 
@@ -121,6 +140,7 @@ def settings(request, key=None):
              'plan': planes}
 
     content = forms[key](request)
+    print(f"CONTENT: \n {content}")
     if request.method == "GET":
         return render(request, 'forms.html', context=content)
     else:
