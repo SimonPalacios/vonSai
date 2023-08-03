@@ -88,16 +88,18 @@ def get_aprobadas():
 def cursada(request):
     if request.method == 'POST':
         try:
-            print()
             choices = [request.POST['codigo']]
-            print(f"ELECCION: {type(choices)}")
             if choices:
                 Todas.objects.filter(codigo__in=choices).update(cursando=True)
+            return HttpResponse(
+                status=204,
+            )
         except Exception as e:
             print(f"ERROR: \n {e}")
-        return HttpResponse(
-            status=204,
-        )
+            return HttpResponse(
+                status=104,
+            )
+
     else:
         return {'form': CursandoForm(),
                 'title': "Elegir Cursadas Actuales"}
@@ -140,7 +142,6 @@ def settings(request, key=None):
              'plan': planes}
 
     content = forms[key](request)
-    print(f"CONTENT: \n {content}")
     if request.method == "GET":
         return render(request, 'forms.html', context=content)
     else:
