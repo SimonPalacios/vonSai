@@ -2,7 +2,9 @@
 {% load static %}
 
 {% block content %}
-    <h2 class="text">{{ titulo }}</h2>
+    <div class="title">
+        <h3>{{ titulo }}</h3>
+    </div>
     <table class="table table-sm table-sortable table-striped table-bordered">
         <thead class="table-dark" id="tHeaders">
         <tr>
@@ -23,5 +25,5 @@
 
     </table>
 
-<script src="{% static 'js/sortTable.js' %}"></script>
+    <script src="{% static 'js/sortTable.js' %}"></script>
 {% endblock %}

@@ -1,7 +1,11 @@
 .table{
-    margin: 10% 0;
+    margin: 5% 0;
 }
 
+.title {
+    color: hsl(0, 0%, 93%);
+    margin: 5% 0;
+}
 .text {
     color: white;
 }
