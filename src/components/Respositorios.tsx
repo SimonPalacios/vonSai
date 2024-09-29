@@ -24,19 +24,26 @@ export default function Repositorios() {
       }
       getRepos(user)
         .then(({ data, ok }) => {
+          console.log({ data, ok });
           if (!ok && !data.length) throw { error: data };
           setRepositorios(data.sort((a, b) => b.stargazers_count - a.stargazers_count));
         })
         .catch((e) => {
-          console.error("[ERROR][COMPONENT]", { e });
-          setRepositorios([]);
+          const { error: { message, repos} } = e;
+          console.error("[ERROR][COMPONENT]", { message, repos });
+          setToast(<Toast {...{
+            title: "IP bloqueada. Repositorios locales",
+            text: message,
+            close: closeToast,
+          }} />);
+          setRepositorios(repos||[]);
         });
     })();
   }, []);
 
   const closeToast = () => setToast(false);
 
-  return (
+  return repositorios.length && (
     <article className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 grid-flow-row gap-4 p-4 select-none relative max-h-screen overflow-scroll">
       {repositorios.map((repo) => (
         <Card

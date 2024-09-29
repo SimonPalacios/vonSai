@@ -3,8 +3,7 @@ const Toast = (props: toastProps) => {
   const { title, text, close, footer } = props;
 
   return (
-    <article className="fixed transform -translate-x-1/2 top-1/4 left-1/2 p-4 rounded-xl
-    w-1/3 dark:bg-teal-900/50 backdrop-blur-lg">
+    <article className="fixed transform -translate-x-[35%] md:-translate-x-1/2 top-1/4 left-1/2 p-2 md:p-4 rounded-xl w-[70%] md:w-1/3 dark:bg-teal-900/50 backdrop-blur-lg">
       <header className="border-b-2 font-bold text-black ">
         <h1><small className="text-slate-800">{title}</small>
           <span
