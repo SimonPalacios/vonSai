@@ -37,7 +37,7 @@ export default function Layout() {
   ]
 
   return (
-    <main className="grid grid-cols-[8rem_1fr] grid-rows-[100dvh]">
+    <main className="grid grid-cols-[5rem_1fr] sm:grid-cols-[8rem_1fr] md:grid-cols-[10rem_1fr] grid-rows-[100dvh]">
       <StyleAside {...{items}}/>
       <Outlet />
     </main>
