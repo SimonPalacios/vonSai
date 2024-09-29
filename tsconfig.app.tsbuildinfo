@@ -1,1 +1,1 @@
-{"root":["./src/App.tsx","./src/main.tsx","./src/mock.ts","./src/types.d.ts","./src/vite-env.d.ts"],"errors":true,"version":"5.6.2"}
+{"root":["./src/main.tsx","./src/types.d.ts","./src/vite-env.d.ts","./src/api/getter.ts","./src/components/Button.tsx","./src/components/Card.tsx","./src/components/Home.tsx","./src/components/Layout.tsx","./src/components/NotFound.tsx","./src/components/Respositorios.tsx","./src/components/Toast.tsx","./src/components/UsersList.tsx","./src/components/index.d.ts","./src/mocks/repos.ts","./src/routes/routes.tsx"],"version":"5.6.2"}
