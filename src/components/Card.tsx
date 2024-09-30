@@ -17,10 +17,12 @@ const Card = (props: cardProps) => {
     };
     setToast(<Toast {...props} />);
   };
+/* 
 
+*/
   const buttons = [
     { icon: arrowGo, title: "Ir", href: item.html_url, id: "ir" },
-    { icon: arrowDownload, title: "Descargar", id: "download", href: item.clone_url },
+    { icon: arrowDownload, title: "Descargar", id: "download", href: `https://github.com/${item.owner.login}/${item.name}/archive/refs/heads/main.zip`},
     { icon: infoIcon, title: "Descripción", id: "info", onClick },
   ];
 
